@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=OrderedListNode
+comment1.params=element\ olderNode\ newerNode
+comment1.target=OrderedListNode(java.lang.Object,\ OrderedListNode,\ OrderedListNode)
+comment2.params=
+comment2.target=java.lang.Object\ getElement()
+comment3.params=element
+comment3.target=void\ setElement(java.lang.Object)
+comment4.params=
+comment4.target=OrderedListNode\ getOlderNode()
+comment5.params=olderNode
+comment5.target=void\ setOlderNode(OrderedListNode)
+comment6.params=
+comment6.target=OrderedListNode\ getNewerNode()
+comment7.params=newerNode
+comment7.target=void\ setNewerNode(OrderedListNode)
+numComments=8
