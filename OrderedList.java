@@ -11,22 +11,31 @@ public class OrderedList<E> {
     private OrderedListNode<E> newestNode;
 
     //CONSTRUCTORS
-    public OrderedList() {
-        this.size = 0;
-        this.oldestNode = null;
-        this.newestNode = null;
-    }
+    public OrderedList() { this.size = 0; }
     public OrderedList(E[] elementArray) {  
         for(int i = 0; i < elementArray.length ; i++) add(elementArray[i]);
     }
     public OrderedList(OrderedList<E> orderedList) {
-        size = orderedList.size;
-        oldestNode = orderedList.oldestNode;
-        newestNode = orderedList.newestNode;
-        
-        orderedList.size = 0;
-        orderedList.oldestNode = null;
-        orderedList.newestNode = null;
+        if (orderedList == null) this.size = 0;
+        else if (orderedList.size == 0) this.size = 0;
+        else if (orderedList.size == 1) {
+            this.size = 1;
+            this.oldestNode = new OrderedListNode<E>(orderedList.oldestNode.getElement(), null, null);
+            this.newestNode = this.oldestNode;
+        } else {
+            this.size = orderedList.size;
+            this.oldestNode = new OrderedListNode<E>(orderedList.oldestNode.getElement(), null, null);
+            
+            OrderedListNode<E> current = orderedList.oldestNode.getNewerNode();
+            OrderedListNode<E> follow = this.oldestNode;
+            while (current != null) {
+                OrderedListNode<E> newNode = new OrderedListNode<E>(current.getElement(), follow, null);
+                follow.setNewerNode(newNode);
+                follow = newNode;
+                current = current.getNewerNode();
+            }
+            this.newestNode = follow;
+        }
     }
     
     //INSTANCE METHODS
