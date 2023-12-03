@@ -42,11 +42,11 @@ public class OrderedList<E> {
     public int getSize() { return size; }    
     public boolean isEmpty() { return size == 0; }
     public E getOldestValue() { 
-        if (size == 0) return null;
+        if (size == 0) throw new IllegalArgumentException("Cannot get any value from an empty list");
         return this.oldestNode.getElement(); 
     }
     public E getNewestValue() { 
-        if (size == 0) return null;
+        if (size == 0) throw new IllegalArgumentException("Cannot get any value from an empty list");
         return this.newestNode.getElement(); 
     }
     public boolean contains(E element) {

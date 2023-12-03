@@ -12,8 +12,6 @@ public class OrderedListTester {
         
         System.out.println("\nSize: " + defaultInstance.getSize());
         System.out.println("Is the test list empty? " + defaultInstance.isEmpty());
-        System.out.println("Oldest Value: " + defaultInstance.getOldestValue());
-        System.out.println("Newest Value: " + defaultInstance.getNewestValue());
         System.out.println("Does the list contain 'Lemon'? " + defaultInstance.contains("Lemon"));
         System.out.println("Does the list contain 'Lemon' and 'Banana'? " + defaultInstance.containsAll(new String[]{"Lemon", "Banana"}));
         
@@ -44,11 +42,9 @@ public class OrderedListTester {
         
         System.out.println("\nReplace 'Strawberry' with 'Cranberry': " + defaultInstance.replace("Strawberry", "Cranberry"));
         
-        System.out.print("\nInput filename: ");
+        System.out.print("\nSaving the instance in filename: ");
         Scanner consoleInput = new Scanner(System.in);
-        String filename = consoleInput.next();
-        System.out.println("Check output named: " + filename);
-        defaultInstance.saveToFile(filename);
+        defaultInstance.saveToFile(consoleInput.next());
         
         System.out.print("\nClear all! "); defaultInstance.clear();
         System.out.println("Is it empty? " + defaultInstance.isEmpty());
@@ -94,11 +90,9 @@ public class OrderedListTester {
         
         System.out.println("\nReplace 'Strawberry' with 'Cranberry': " + arrayInstance.replace("Strawberry", "Cranberry"));
         
-        System.out.print("\nInput filename: ");
+        System.out.print("\nSaving the instance in filename: ");
         Scanner consoleInput = new Scanner(System.in);
-        String filename = consoleInput.next();
-        System.out.println("Check output named: " + filename);
-        arrayInstance.saveToFile(filename);
+        arrayInstance.saveToFile(consoleInput.next());
         
         System.out.print("\nClear all! "); arrayInstance.clear();
         System.out.println("Is it empty? " + arrayInstance.isEmpty());
@@ -138,18 +132,16 @@ public class OrderedListTester {
         System.out.println("Instance in array: " + Arrays.toString(listInstance.toArray()));
         System.out.println("Remove 'Banana': " + listInstance.remove("Banana"));
         System.out.println("Instance in array: " + Arrays.toString(listInstance.toArray()));
-        System.out.println("Remove 'Lemon' and 'Banana': " + listInstance.removeAll(new String[]{"Lemon", "Banana"}));
+        System.out.println("Remove 'Lemon' and 'Banana' as an array: " + listInstance.removeAll(new String[]{"Lemon", "Banana"}));
         System.out.println("Instance in array: " + Arrays.toString(listInstance.toArray()));
-        System.out.println("Remove 'Lemon' and 'Banana': " + listInstance.removeAll(new OrderedList<String>(new String[]{"Lemon", "Banana"})));
+        System.out.println("Remove 'Lemon' and 'Banana' as an instance: " + listInstance.removeAll(new OrderedList<String>(new String[]{"Lemon", "Banana"})));
         System.out.println("Instance in array: " + Arrays.toString(listInstance.toArray()));
         
         System.out.println("\nReplace 'Strawberry' with 'Cranberry': " + listInstance.replace("Strawberry", "Cranberry"));
         
-        System.out.print("\nInput filename: ");
+        System.out.print("\nSaving the instance in filename: ");
         Scanner consoleInput = new Scanner(System.in);
-        String filename = consoleInput.next();
-        System.out.println("Check output named: " + filename);
-        listInstance.saveToFile(filename);
+        listInstance.saveToFile(consoleInput.next());
         
         System.out.print("\nClear all! "); listInstance.clear();
         System.out.println("Is it empty? " + listInstance.isEmpty());
