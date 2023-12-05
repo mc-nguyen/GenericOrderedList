@@ -104,10 +104,10 @@ public class OrderedList<E> {
     }
     public void addAll(E[] elementArray) { for (E element : elementArray) add(element); }
     public void addAll(OrderedList<E> otherList) {
-        this.newestNode.setNewerNode(otherList.oldestNode);
-        otherList.oldestNode.setOlderNode(this.newestNode);
-        this.newestNode = otherList.newestNode;
-        this.size += otherList.size;
+        for (OrderedListNode<E> current = otherList.oldestNode;
+            current != null; 
+            current = current.getNewerNode())
+            add(current.getElement());
     }
     public E removeOldestValue() {
         if (size == 0) throw new IllegalStateException("The ordered list is empty.");
